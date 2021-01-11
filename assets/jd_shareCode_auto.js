@@ -436,7 +436,7 @@ async function shareCode_jdzz() {
                      if (data.data.shareTaskRes) {
                          $.shareCode.jdzz.code = data.data.shareTaskRes.itemId;
                         }else {
-                         $.shareCode.jdzz.code = “your jdzz sharecode is unseen temporarily”;
+                         console.log(`已满5人助力,暂时看不到您的京东赚赚好友助力码`)
                         }
                     }
                 }
