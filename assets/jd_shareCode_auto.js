@@ -407,7 +407,7 @@ async function shareCode_crazyjoy() {
         });
     });
 }
-async function getjdzz() {
+async function shareCode_jdzz() {
   const JDZZ_API_HOST = "https://api.m.jd.com/client.action";
 
   var request = {
