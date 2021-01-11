@@ -56,6 +56,7 @@ if ($.isNode()) {
                     name: "京东萌宠",
                     base: "http://api.turinglabs.net/api/v1/jd/pet/create/",
                     code: "",
+                    err: "",
                 },
                 bean: {
                     //日志中直接搜索下面内容即可快速找到互助码信息
