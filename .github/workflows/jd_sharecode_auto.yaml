@@ -6,7 +6,7 @@ name: 京东互助码获取并提交
 on:
     workflow_dispatch:
     schedule:
-        - cron: "5 19 1,10,20 * *" # 每月1/10/20号凌晨四点零五分跑一次互助码自动提交
+        - cron: "5 19 1,10,20 * *" # 每月1/10/20号凌晨3点零五分跑一次互助码自动提交
     watch:
         types: [started]
     repository_dispatch:
@@ -46,4 +46,4 @@ jobs:
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
                   #通用配置
                   JD_COOKIE: ${{ github.event.client_payload.JD_COOKIE || secrets.JD_COOKIE }}
-                  SYNCURL: https://raw.githubusercontent.com/yxnwh/misc/master/assets/jd_shareCode_auto.js
+                  SYNCURL: https://raw.githubusercontent.com/yxnwh/misc/main/assets/jd_shareCode_auto.js
