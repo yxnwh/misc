@@ -517,6 +517,7 @@ function msgShow() {
             shareCodeMsg += `\n【疯狂JOY】\n${
                 $.shareCode.crazyjoy.code ? $.shareCode.crazyjoy.code : $.shareCode.crazyjoy.err
             }`;
+            shareCodeMsg += `\n【京东赚赚】\n${$.shareCode.jdzz.code ? $.shareCode.jdzz.code : $.shareCode.jdzz.err}`;
         }
 
         $.msg($.name, ``, `【京东账号${$.index}】${$.UserName}${shareCodeMsg}`);
