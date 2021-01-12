@@ -6,7 +6,7 @@ name: 京东互助码
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 3 1,10,20 * *"
+        - cron: "0 19 1,10,20 * *"
     watch:
         types: [started]
     repository_dispatch:
