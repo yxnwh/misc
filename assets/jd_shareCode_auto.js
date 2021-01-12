@@ -76,7 +76,7 @@ if ($.isNode()) {
                 },
                 crazyjoy: {
                     name: "crazyJoy",
-                    base: "https://code.chiang.fun/api/v1/jd/jdcrazyjoy/create/Type",
+                    base: "https://code.chiang.fun/api/v1/jd/jdcrazyjoy/create/",
                     code: "",
                     err: "",
                 },
@@ -408,11 +408,8 @@ async function shareCode_crazyjoy() {
     });
 }
 async function shareCode_jdzz() {
-  const JDZZ_API_HOST = "https://api.m.jd.com/client.action";
-
   var request = {
-         url: `${JDZZ_API_HOST}?functionId=interactIndex`,
-        body: `functionId=interactIndex&body=${escape(JSON.stringify({}))}&client=wh5&clientVersion=9.1.0`,
+         url: `${JD_API_HOST}?functionId=interactIndex&body=${escape(JSON.stringify({}))}&client=wh5&clientVersion=9.1.0`,
         headers: {
            'Cookie': cookie,
            'Host': 'api.m.jd.com',
@@ -425,7 +422,7 @@ async function shareCode_jdzz() {
         },
     };
    return new Promise((resolve) => {
-        $.post(request, async (err, resp, data) => {
+        $.get(request, async (err, resp, data) => {
             try {
                 if (err) {
                     console.log(`${JSON.stringify(err)}`);
@@ -443,7 +440,7 @@ async function shareCode_jdzz() {
             } catch (e) {
                 $.logErr(e, resp);
             } finally {
-                resolve(data);
+                resolve();
             }
         });
     });
