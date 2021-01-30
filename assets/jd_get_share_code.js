@@ -1,3 +1,25 @@
+/*
+超级直播间红包雨
+每天20-23半点可领
+活动时间：2021年1月28日
+更新地址：https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_live_redrain.js
+已支持IOS双京东账号, Node.js支持N个京东账号
+脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
+============Quantumultx===============
+[task_local]
+#超级直播间红包雨
+1 2 3 4 * https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_live_redrain.js, tag=超级直播间红包雨, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_live_redrain2.jpg, enabled=true
+
+================Loon==============
+[Script]
+cron "30,31 20-23/1 28 1 *" script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_live_redrain.js, tag=超级直播间红包雨
+
+===============Surge=================
+超级直播间红包雨 = type=cron,cronexp="30,31 20-23/1 28 1 *",wake-system=1,timeout=200,script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_live_redrain.js
+
+============小火箭=========
+超级直播间红包雨 = type=cron,script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/jd_live_redrain.js, cronexpr="30,31 20-23/1 28 1 *", timeout=200, enable=true
+ */
 const $ = new Env("获取互助码");
 const JD_API_HOST = "https://api.m.jd.com/client.action";
 let cookiesArr = [], cookie = '', message;
