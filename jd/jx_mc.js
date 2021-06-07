@@ -10,11 +10,9 @@
         https://www.orzlee.com/web-development/2021/03/03/lxk0301-jingdong-signin-scriptjingxi-factory-solves-the-problem-of-unable-to-signin.html
     
     ！！！先将新手任务做完，再执行本脚本，不然会出现未知错误
+ [task_local]
+ 0 9,12,18 * * * https://raw.githubusercontent.com/panghu999/panghu/master/jd_xcpp.js, tag=柠檬品新潮牌联欢, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
-    hostname = m.jingxi.com
-
-    BoxJS订阅
-    https://raw.githubusercontent.com/whyour/hundun/master/quanx/whyour.boxjs.json
 *
 **/
 
