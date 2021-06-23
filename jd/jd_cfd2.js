@@ -10,11 +10,11 @@ cron 5 8,13,19 * * * jd_cfd.js
 ============Quantumultx===============
 [task_local]
 #京喜财富岛
-5 8,13,19 * * * jd_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
+0 17 * * * jd_cfd.js, tag=京喜财富岛, img-url=https://raw.githubusercontent.com/58xinian/icon/master/jxcfd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "5 8,13,19 * * *" script-path=jd_cfd.js,tag=京喜财富岛
+cron "0 17 * * *" script-path=jd_cfd.js,tag=京喜财富岛
 
 ===============Surge=================
 京喜财富岛 = type=cron,cronexp="5 8,13,19 * * *",wake-system=1,timeout=3600,script-path=jd_cfd.js
