@@ -2,7 +2,9 @@ const $ = new Env('顺丰')
 $.KEY_login = 'sf'
 
 !(async () => {
+  const session = {}
   //session.url = $request.url
+  session.body = $request.body
   session.headers = $request.headers["jsbundle"]
   console.log(JSON.stringify(session))
   if ($.setdata(JSON.stringify(session), $.KEY_login)) {
