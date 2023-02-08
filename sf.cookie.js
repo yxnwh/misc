@@ -1,4 +1,4 @@
-const $ = new Env('顺丰')
+const $ = new Env('顺丰抓包')
 $.KEY_login = 'sf'
 
 !(async () => {
