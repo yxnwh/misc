@@ -3,7 +3,10 @@ $.KEY_login = 'sq'
 
 !(async () => {
   const session = {}
-  session.headers = $request.headers["Cookie"]
+  let tmp = {}
+  //tmp["skey"] = $response.headers["Set-Cookie"]
+  tmp["User-Agent"] = $request.headers["User-Agent"]
+  session.headers = tmp
   console.log(JSON.stringify(session))
   if ($.setdata(JSON.stringify(session), $.KEY_login)) {
     $.subt = `获取会话: 成功!`
