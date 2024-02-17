@@ -4,11 +4,7 @@ $.KEY_login = 'ccb'
 !(async () => {
   const session = {}
   let tmp = {}
-  //session.url = $request.url
   session.body = $request.body
-  // tmp["skey"] = $request.headers["skey"]
-  // tmp["User-Agent"] = $request.headers["User-Agent"]
-  // session.headers = tmp
   console.log(JSON.stringify(session))
   if ($.setdata(JSON.stringify(session), $.KEY_login)) {
     $.subt = `获取会话: 成功!`
