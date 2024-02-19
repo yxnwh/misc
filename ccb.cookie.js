@@ -7,7 +7,7 @@ $.KEY_login = 'ccb'
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
-    session.JHSH_BODY = $.body
+    session.JHSH_BODY = JSON.stringify($.body)
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
@@ -17,12 +17,12 @@ $.KEY_login = 'ccb'
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
       }
-      session.JHSH_BODY = autoLoginInfo
+      session.JHSH_BODY = JSON.stringify(autoLoginInfo)
     } else {
       console.log("❌ autoLogin 数据获取失败");
     }
   }
-  if ($.setdata(JSON.stringify(session), $.KEY_login)) {
+  if ($.setdata(session), $.KEY_login)) {
     $.subt = `🎉 建行生活签到数据获取: 成功!`
   } else {
     $.subt = `❌ 建行生活签到数据获取: 失败!`
