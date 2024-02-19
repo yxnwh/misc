@@ -26,7 +26,7 @@ const $ = new Env('建行生活')
     $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
-    $.MBCUserAgent = headers['mbcuseragent'];
+    $.MBCUserAgent = headers['mbc-user-agent'];
     if ($.DeviceId && $.MBCUserAgent && $request.body) {
       autoLoginInfo = {
         "DeviceId": $.DeviceId,
