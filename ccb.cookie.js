@@ -44,6 +44,7 @@ const $ = new Env('建行生活')
   .finally(() => $.done())
 
 function convertKeysToLowercase(obj) {
+    return Object.entries(obj).reduce((acc, [key, value]) => {
         acc[key.toLowerCase()] = value;
         return acc;
       }, {});
