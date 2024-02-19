@@ -25,7 +25,7 @@ $.KEY_login = 'ccb'
       console.log("❌ autoLogin 数据获取失败");
     }
   }
-  if ($.setdata(JSON.stringify(session), $.KEY_login)) {
+  if ($.setdata(session, $.KEY_login)) {
     $.subt = `🎉 建行生活签到数据获取: 成功!`
   } else {
     $.subt = `❌ 建行生活签到数据获取: 失败!`
