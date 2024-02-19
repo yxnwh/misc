@@ -2,7 +2,7 @@ const $ = new Env('建行生活')
 $.KEY_login = 'ccb'
 
 !(async () => {
-  const session = {}
+  session = {}
   session.headers = JSON.parse($request.headers)
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
