@@ -3,15 +3,31 @@ $.KEY_login = 'ccb'
 
 !(async () => {
   const session = {}
-  let tmp = {}
-  session.body = $request.body
-  console.log(JSON.stringify(session))
-  if ($.setdata(JSON.stringify(session), $.KEY_login)) {
-    $.subt = `获取会话: 成功!`
-  } else {
-    $.subt = `获取会话: 失败!`
+  session.headers = $request.headers
+  if (/A3341A038/.test($request.url)) {
+    $.body = JSON.parse($request.body);
+    $.body['MID'] = headers['mid'];
+    session.JHSH_BODY = $.body
+  } else if (/autoLogin/.test($request.url)) {
+    $.DeviceId = headers['deviceid'];
+    $.MBCUserAgent = headers['mbc-user-agent'];
+    if ($.DeviceId && $.MBCUserAgent && $request.body) {
+      autoLoginInfo = {
+        "DeviceId": $.DeviceId,
+        "MBCUserAgent": $.MBCUserAgent,
+        "Body": $request.body
+      }
+      session.JHSH_BODY = autoLoginInfo
+    } else {
+      console.log("❌ autoLogin 数据获取失败");
+    }
   }
-  $.msg($.name, $.subt, $.desc)
+  if ($.setdata(JSON.stringify(session), $.KEY_login)) {
+    $.subt = `🎉 建行生活签到数据获取: 成功!`
+  } else {
+    $.subt = `❌ 建行生活签到数据获取: 失败!`
+  }
+  $.msg($.name, $.subt)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
