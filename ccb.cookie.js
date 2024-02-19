@@ -1,13 +1,14 @@
 const $ = new Env('建行生活')
-$.KEY_login = 'ccb'
+// $.KEY_login = 'ccb'
 
 !(async () => {
-  session = {}
-  session.headers = JSON.parse($request.headers)
+  const headers = $request.headers;
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
-    session.JHSH_BODY = JSON.stringify($.body)
+    $.body = JSON.stringify($.body);
+    $.setdata($.body, 'JHSH_BODY');
+    $.msg($.name, ``, `🎉 建行生活签到数据获取成功。`);
   } else if (/autoLogin/.test($request.url)) {
     $.DeviceId = headers['deviceid'];
     $.MBCUserAgent = headers['mbc-user-agent'];
@@ -17,17 +18,11 @@ $.KEY_login = 'ccb'
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
       }
-      session.JHSH_BODY = JSON.stringify(autoLoginInfo)
+      $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
     } else {
       console.log("❌ autoLogin 数据获取失败");
     }
   }
-  if ($.setdata(session), $.KEY_login)) {
-    message = `🎉 建行生活签到数据获取: 成功!`
-  } else {
-    message = `❌ 建行生活签到数据获取: 失败!`
-  }
-  $.msg($.name, '', message)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
