@@ -2,8 +2,10 @@ const $ = new Env('建行生活')
 // $.KEY_login = 'ccb'
 
 GetCookie()
+$.done();
+
 function GetCookie() {
-  const headers = $request.headers;  // 将 headers 的所有 key 转换为小写以兼容各个代理 App
+  const headers = ObjectKeys2LowerCase($request.headers)
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
@@ -27,6 +29,19 @@ function GetCookie() {
     }
   }
 }
+
+function ObjectKeys2LowerCase(obj) {
+  const _lower = Object.fromEntries(Object.entries(obj).map(([k, v]) => [k.toLowerCase(), v]))
+  return new Proxy(_lower, {
+    get: function (target, propKey, receiver) {
+      return Reflect.get(target, propKey.toLowerCase(), receiver)
+    },
+    set: function (target, propKey, value, receiver) {
+      return Reflect.set(target, propKey.toLowerCase(), value, receiver)
+    }
+  })
+}
+
 
 
 // prettier-ignore
