@@ -6,9 +6,9 @@ $.done();
 
 function GetCookie() {
   const headers = $request.headers
-  console.log(headers)
+  console.log(typeof(headers))
   if (/A3341A038/.test($request.url)) {
-    console.log($request.body)
+    console.log(typeof($request.body))
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['MID'];
     $.body = JSON.stringify($.body);
@@ -24,6 +24,7 @@ function GetCookie() {
         "MBCUserAgent": $.MBCUserAgent,
         "Body": $request.body
       }
+      console.log(typeof(autoLoginInfo))
       $.setdata(JSON.stringify(autoLoginInfo), 'JHSH_LOGIN_INFO');
       console.log(JSON.stringify(autoLoginInfo) + "写入成功");
     } else {
