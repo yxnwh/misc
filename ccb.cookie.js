@@ -3,7 +3,7 @@ $.KEY_login = 'ccb'
 
 !(async () => {
   const session = {}
-  session.headers = $request.headers
+  session.headers = JSON.parse($request.headers)
   if (/A3341A038/.test($request.url)) {
     $.body = JSON.parse($request.body);
     $.body['MID'] = headers['mid'];
