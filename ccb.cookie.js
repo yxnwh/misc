@@ -27,7 +27,7 @@ $.KEY_login = 'ccb'
   } else {
     $.subt = `❌ 建行生活签到数据获取: 失败!`
   }
-  $.msg($.name, $.subt)
+  $.msg($.name, $.subt, $.desc)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
