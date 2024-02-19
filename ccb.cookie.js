@@ -23,11 +23,11 @@ $.KEY_login = 'ccb'
     }
   }
   if ($.setdata(session), $.KEY_login)) {
-    $.subt = `🎉 建行生活签到数据获取: 成功!`
+    message = `🎉 建行生活签到数据获取: 成功!`
   } else {
-    $.subt = `❌ 建行生活签到数据获取: 失败!`
+    message = `❌ 建行生活签到数据获取: 失败!`
   }
-  $.msg($.name, $.subt, $.desc)
+  $.msg($.name, '', message)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
