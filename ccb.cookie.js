@@ -39,9 +39,8 @@ const $ = new Env('建行生活')
       console.log("❌ autoLogin 数据获取失败");
     }
   }
+  $.done()
 })()
-  .catch((e) => $.logErr(e))
-  .finally(() => $.done())
 
 function convertKeysToLowercase(obj) {
     return Object.entries(obj).reduce((acc, [key, value]) => {
